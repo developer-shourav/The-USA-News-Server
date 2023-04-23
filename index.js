@@ -29,6 +29,11 @@ app.get('/news/:id', (req, res) => {
 
 })
 
+app.get('/catagories/:id', (req, res) => {
+  const iD = req.params.id;
+  const sameCategoriesNew = news.filter( n => n.category_id == iD);
+  res.send(sameCategoriesNew)
+})
 
 app.listen(port , () => {
     console.log(`The USA New is running on Port: ${port}` );
