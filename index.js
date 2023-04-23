@@ -24,15 +24,20 @@ app.get('/news', (req, res) => {
 
 app.get('/news/:id', (req, res) => {
   const iD = req.params.id;
-  const singleNews = news.find( n => n._id == iD ) ;
+  const singleNews = news.find( n => n._id === iD ) ;
   res.send(singleNews)
 
 })
 
 app.get('/catagories/:id', (req, res) => {
   const iD = req.params.id;
-  const sameCategoriesNew = news.filter( n => n.category_id == iD);
-  res.send(sameCategoriesNew)
+  if( iD === 0){
+    res.send(news)
+  }
+  else{
+    const sameCategoriesNew = news.filter( n => n.category_id === iD);
+    res.send(sameCategoriesNew)
+  }
 })
 
 app.listen(port , () => {
