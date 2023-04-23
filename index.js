@@ -22,6 +22,14 @@ app.get('/news', (req, res) => {
   res.send(news)
 })
 
+app.get('/news/:id', (req, res) => {
+  const iD = req.params.id;
+  const singleNews = news.find( n => n._id == iD ) ;
+  res.send(singleNews)
+
+})
+
+
 app.listen(port , () => {
     console.log(`The USA New is running on Port: ${port}` );
 })
