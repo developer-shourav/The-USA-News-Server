@@ -31,7 +31,7 @@ app.get('/news/:id', (req, res) => {
 
 app.get('/catagories/:id', (req, res) => {
   const iD = req.params.id;
-  if( iD === 0){
+  if( iD == 0){
     res.send(news)
   }
   else{
@@ -44,3 +44,4 @@ app.listen(port , () => {
     console.log(`The USA New is running on Port: ${port}` );
 })
 
+     
